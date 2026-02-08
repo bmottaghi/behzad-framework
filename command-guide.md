@@ -24,18 +24,25 @@ This creates a fresh project with all framework documents ready.
 
 This analyzes your codebase and creates framework documents.
 
-### Deliver a Feature
+### Work on Something (Feature or Bug)
 
 ```
-/deliver user authentication
+/new-request login button doesn't work on mobile
 ```
 
-This starts the full 9-phase delivery process.
+AI will:
+1. Ask clarifying questions
+2. Determine if it's a BUG or FEATURE
+3. Confirm with you
+4. Guide you through the appropriate process
+
+This is the **recommended way** to start any work.
 
 ### Resume Work
 
 ```
 /continue FEAT-001
+/continue BUG-003
 ```
 
 This picks up where you left off.
@@ -46,10 +53,11 @@ This picks up where you left off.
 
 | Command | What it does |
 |---------|--------------|
-| `/deliver [feature]` | Start new feature delivery |
-| `/continue [FEAT-ID]` | Resume paused feature |
+| `/new-request [description]` | Start new work (feature or bug) - **recommended** |
+| `/deliver [feature]` | Start new feature (skips classification) |
+| `/continue [ID]` | Resume paused work (FEAT-XXX or BUG-XXX) |
 | `/status` | Check overall status |
-| `/status [FEAT-ID]` | Check specific feature status |
+| `/status [ID]` | Check specific feature/bug status |
 | `/help` | Show all commands |
 | `/pause` | Pause current work |
 | `/resume` | Resume most recent work |
@@ -66,13 +74,14 @@ This picks up where you left off.
 | `/init-existing` | `/init-existing` | Add framework to existing project |
 | `/help` | `/help deliver` | Get help on any command |
 
-### Delivering Features
+### Working on Features & Bugs
 
 | Command | Example | Description |
 |---------|---------|-------------|
-| `/deliver` | `/deliver search functionality` | Start delivering a new feature |
-| `/continue` | `/continue FEAT-001` | Resume a paused feature |
-| `/status` | `/status FEAT-002` | Check feature progress |
+| `/new-request` | `/new-request button is broken` | Start any work (AI classifies) |
+| `/deliver` | `/deliver search functionality` | Start feature (skip classification) |
+| `/continue` | `/continue FEAT-001` or `/continue BUG-003` | Resume paused work |
+| `/status` | `/status FEAT-002` or `/status BUG-001` | Check progress |
 | `/plan` | `/plan FEAT-001` | View/edit execution plan |
 
 ### Controlling Execution
@@ -116,20 +125,36 @@ This picks up where you left off.
 /init-existing
 ```
 
-### Workflow 2: Deliver a Feature
+### Workflow 2: Work on Something (Feature or Bug)
 
 ```
-# Start delivery
-/deliver user login with email and password
+# Start with /new-request - AI will classify
+/new-request users can't log in on Safari browser
 
-# AI will guide you through 9 phases
-# Just respond to decision gates
+# AI asks questions, determines if BUG or FEATURE
+# You confirm the classification
+# AI guides you through the appropriate process
+
+# To abandon at any gate:
+# Just say "abandon" or "cancel"
 
 # If you need to pause
 /pause
 
 # Resume later
+/continue BUG-001
+# or
 /continue FEAT-001
+```
+
+### Workflow 2b: Deliver a Known Feature
+
+```
+# If you KNOW it's a feature, skip classification
+/deliver user login with email and password
+
+# AI guides you through 9 phases
+# Just respond to decision gates
 ```
 
 ### Workflow 3: Check What's Happening
@@ -170,19 +195,30 @@ This picks up where you left off.
 
 ## Tips
 
-### Be Descriptive with /deliver
+### Be Descriptive
 
 **Good:**
 ```
-/deliver user authentication with email and password, including password reset
+/new-request users can't log in when they have special characters in their password
+/new-request add dark mode toggle to settings page
 ```
 
 **Less Good:**
 ```
-/deliver auth
+/new-request login broken
+/new-request dark mode
 ```
 
 The more you describe, the better the clarification phase goes.
+
+### You Can Always Abandon
+
+At any decision gate, you can say:
+- "abandon"
+- "cancel"
+- "stop"
+
+The framework will cleanly exit without making changes (or rollback if implementation started).
 
 ### Use /status Often
 
@@ -275,30 +311,34 @@ Run `/update-tech-spine` after making code changes outside the framework.
 
 ```
 STARTING:
-  /init-new [name]     Start new project
-  /init-existing       Add to existing project
+  /init-new [name]       Start new project
+  /init-existing         Add to existing project
 
-DELIVERING:
-  /deliver [feature]   Start new feature
-  /continue [ID]       Resume feature
-  /status [ID]         Check status
+WORKING:
+  /new-request [desc]    Start any work (recommended)
+  /deliver [feature]     Start feature (skip classification)
+  /continue [ID]         Resume (FEAT-XXX or BUG-XXX)
+  /status [ID]           Check status
 
 CONTROLLING:
-  /pause               Pause work
-  /resume              Resume work
-  /deploy [ID]         Deploy feature
-  /rollback [ID]       Rollback deploy
+  /pause                 Pause work
+  /resume                Resume work
+  /deploy [ID]           Deploy feature
+  /rollback [ID]         Rollback deploy
 
 DOCUMENTS:
-  /update-tech-spine   Sync tech docs
-  /show-lessons [tag]  View lessons
-  /list-features       List features
-  /sync-docs           Check consistency
+  /update-tech-spine     Sync tech docs
+  /show-lessons [tag]    View lessons
+  /list-features         List features
+  /sync-docs             Check consistency
 
 INFO:
-  /show-roadmap        View roadmap
-  /show-metrics        View metrics
-  /help [cmd]          Get help
+  /show-roadmap          View roadmap
+  /show-metrics          View metrics
+  /help [cmd]            Get help
+
+AT ANY GATE:
+  "abandon" or "cancel"  Exit cleanly
 ```
 
 Copy this and keep it handy!

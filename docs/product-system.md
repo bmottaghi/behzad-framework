@@ -235,6 +235,73 @@ Initialize project repository, set up development environment, configure basic t
 
 ---
 
+## Bugs
+
+### How to Read This
+
+**Status:**
+- `Reported` - Newly reported, not yet investigated
+- `Investigating` - Being analyzed to find root cause
+- `In Progress` - Fix is being implemented
+- `Fixed` - Fix deployed and verified
+- `Won't Fix` - Decided not to fix (with reason)
+- `Abandoned` - Work cancelled before completion
+
+**Priority:**
+- `P0` - Critical, blocks users, fix immediately
+- `P1` - Important, affects many users, fix soon
+- `P2` - Minor, workaround exists, fix when convenient
+
+---
+
+### Active Bugs
+
+*No active bugs currently.*
+
+---
+
+### Fixed Bugs
+
+#### BUG-000: Example Bug Entry
+
+**Status:** Fixed
+**Priority:** P1
+**Reported:** 2025-01-10
+**Fixed:** 2025-01-11
+**Related Feature:** FEAT-001
+
+**Description:** Login button doesn't respond on mobile devices.
+
+**Steps to Reproduce:**
+1. Open app on mobile browser
+2. Enter email and password
+3. Tap "Login" button
+4. Nothing happens
+
+**Expected Behavior:** User should be logged in and redirected to dashboard.
+
+**Actual Behavior:** Button shows no response, user stays on login page.
+
+**Root Cause:** CSS z-index issue caused overlay to block button on mobile.
+
+**Fix:** Adjusted z-index values in login form CSS.
+
+**Lessons Learned:** Lesson 20: Test all interactive elements on mobile before release.
+
+---
+
+### Won't Fix
+
+*No bugs marked as won't fix.*
+
+---
+
+### Abandoned
+
+*No abandoned bug fixes.*
+
+---
+
 ## Cancelled Features
 
 ### FEAT-999: Social Media Integration

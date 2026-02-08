@@ -6,12 +6,14 @@ An AI-driven Product & Engineering Operating System for systematic feature deliv
 
 Type these commands directly in Claude Code:
 
-- `/deliver [feature]` - Start delivering a new feature
+- `/new-request [description]` - Start working on a feature or bug (AI detects which)
 - `/init-existing` - Add framework to existing project
 - `/init-new [name]` - Start new project with framework
-- `/continue [FEAT-ID]` - Resume paused work
-- `/status [FEAT-ID]` - Check feature or project status
+- `/continue [ID]` - Resume paused work (FEAT-XXX or BUG-XXX)
+- `/status [ID]` - Check feature/bug or project status
 - `/help` - Show all available commands
+
+> **Tip:** Use `/new-request` for anything - features, bugs, improvements. AI will classify and guide you.
 
 ## Key Documentation
 
