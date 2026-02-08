@@ -285,20 +285,21 @@ Create phased plan in docs/execution/execution-plan.md:
 
 Before proceeding to Pre-Release Review:
 
-1. **Read docs/tech-spine/component-map.md** to determine test boundaries
-2. **Identify which tests to run** based on changed files:
+1. **Read docs/tech-spine/test-registry.md** to see all existing tests
+2. **Read docs/tech-spine/component-map.md** to determine test boundaries
+3. **Identify which tests to run** based on changed files:
    - If ANY file in Shared Layer changed → Run ALL tests
    - If only Product-Specific files changed → Run that product's tests
-3. **Run appropriate tests:**
+4. **Run appropriate tests:**
    - Command: `npm test` or project's test command
-4. **Check results:**
+5. **Check results:**
    - If ALL tests pass → Continue to Phase F6
    - If ANY test fails:
      - Stop and report which tests failed
      - If previous feature's tests fail → **Regression detected**
      - Fix all failing tests before continuing
      - Re-run full test suite
-5. **Update Test Registry** in execution-plan.md with final results
+6. **Update Test Registry** in execution-plan.md with final results
 
 **Why this matters:** New features should never break existing functionality.
 
@@ -350,6 +351,12 @@ Update product-system.md:
 - **Update Roadmap section:**
   - Move feature from PLANNED/IN PROGRESS to COMPLETED
   - Format: `- FEAT-XXX: [Title] \`[products]\` ✓`
+
+**Transfer Test Registry to permanent storage:**
+1. Read Test Registry section from execution-plan.md
+2. Add new entry to docs/tech-spine/test-registry.md under "Tests by Feature"
+3. Update Summary table counts in test-registry.md
+4. Update "Tests by Product" sections if needed
 
 ### Phase F10: Git Commit & Push (Mandatory)
 
@@ -423,3 +430,5 @@ When user says "abandon", "cancel", or "stop" at any gate:
 11. **ALWAYS** update Roadmap when creating, starting, or completing features
 12. **ALWAYS** update Test Registry in execution-plan.md as you write tests
 13. **ALWAYS** check component-map.md to determine which tests to run
+14. **ALWAYS** transfer tests from execution-plan.md to test-registry.md when feature completes
+15. **ALWAYS** read test-registry.md before running tests to know all existing tests
