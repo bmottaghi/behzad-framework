@@ -1,8 +1,10 @@
 I'm initializing behzad-framework in this existing project.
 
 **FIRST, read framework principles:**
-1. Read: philosophy.md
-2. Read: how-it-works.md
+> Note: Framework docs may be in root OR in .behzad/ folder (if installed as submodule)
+
+1. Read: philosophy.md (or .behzad/philosophy.md)
+2. Read: how-it-works.md (or .behzad/how-it-works.md)
 
 **ANALYZE THE PROJECT:**
 1. Explore the codebase structure

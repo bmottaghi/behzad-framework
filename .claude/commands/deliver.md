@@ -1,9 +1,11 @@
 I'm using behzad-framework for systematic feature delivery.
 
 **FIRST, read these framework documents (in this order):**
-1. Read: philosophy.md - Understand the principles
-2. Read: deliver-flow.md - The 9-phase delivery process
-3. Read: decision-gates.md - The 5 approval points
+> Note: Framework docs may be in root OR in .behzad/ folder (if installed as submodule)
+
+1. Read: philosophy.md (or .behzad/philosophy.md) - Understand the principles
+2. Read: deliver-flow.md (or .behzad/deliver-flow.md) - The 9-phase delivery process
+3. Read: decision-gates.md (or .behzad/decision-gates.md) - The 5 approval points
 
 **THEN, read the project documents:**
 4. Read: docs/product-system.md - Current product state

@@ -17,7 +17,9 @@ Type these commands directly in Claude Code:
 
 Read these to understand the framework:
 
-- **philosophy.md** - Core principles (read first!)
+> **Note:** If installed as submodule, docs are in `.behzad/` folder.
+
+- **philosophy.md** (or .behzad/philosophy.md) - Core principles (read first!)
 - **how-it-works.md** - System architecture
 - **deliver-flow.md** - The 9-phase delivery process
 - **decision-gates.md** - The 5 approval points

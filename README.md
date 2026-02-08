@@ -127,7 +127,7 @@ This makes the process faster, cheaper, and more reliable.
 
 ## Installation
 
-### Option 1: Clone for New Project (Recommended)
+### Option 1: New Project (Clone)
 
 ```bash
 git clone https://github.com/bmottaghi/behzad-framework.git my-project
@@ -139,15 +139,57 @@ Open in VSCode with Claude Code extension. Commands work automatically!
 
 Then type `/init-new my-project` to set up your project.
 
-### Option 2: Add to Existing Project
+### Option 2: Existing Project (Git Submodule) ⭐ Recommended
 
-**Linux/Mac (bash):**
+This method allows easy updates when the framework improves.
+
+**Step 1: Add as submodule**
+```bash
+cd your-project
+git submodule add https://github.com/bmottaghi/behzad-framework.git .behzad
+```
+
+**Step 2: Run setup script**
+
+Linux/Mac:
+```bash
+chmod +x .behzad/setup.sh && ./.behzad/setup.sh
+```
+
+Windows (PowerShell):
+```powershell
+.\.behzad\setup.ps1
+```
+
+**Step 3: Initialize**
+```
+/init-existing
+```
+
+### Updating the Framework
+
+When the framework gets updates:
+
+```bash
+# Pull latest changes
+git submodule update --remote .behzad
+
+# Re-run setup (Windows only, if not using symlinks)
+.\.behzad\setup.ps1 -Force
+```
+
+If using symlinks (Linux/Mac or Windows with Developer Mode), updates apply automatically!
+
+### Option 3: Manual Copy (Not Recommended)
+
+If you prefer not to use submodules:
+
+**Linux/Mac:**
 ```bash
 cd your-project
 git clone https://github.com/bmottaghi/behzad-framework.git .behzad-temp
 cp .behzad-temp/CLAUDE.md .
 cp -r .behzad-temp/.claude .
-cp -r .behzad-temp/*.md .
 rm -rf .behzad-temp
 ```
 
@@ -157,22 +199,12 @@ cd your-project
 git clone https://github.com/bmottaghi/behzad-framework.git .behzad-temp
 cp .behzad-temp\CLAUDE.md .
 cp -Recurse -Force .behzad-temp\.claude .
-cp -Force .behzad-temp\*.md .
 rm -Recurse -Force .behzad-temp
 ```
 
 Then type `/init-existing` to analyze your codebase and create framework docs.
 
-### Option 3: Manual Setup
-
-1. Download or copy these files to your project root:
-   - `CLAUDE.md`
-   - `.claude/commands/` (entire folder)
-   - `philosophy.md`, `deliver-flow.md`, `decision-gates.md`, `how-it-works.md`
-
-2. Open your project in VSCode with Claude Code
-
-3. Type `/init-existing` or `/init-new`
+> **Note:** With manual copy, you'll need to repeat these steps to get updates.
 
 ---
 
