@@ -130,7 +130,7 @@ This makes the process faster, cheaper, and more reliable.
 ### Option 1: Clone for New Project (Recommended)
 
 ```bash
-git clone https://github.com/user/behzad-framework.git my-project
+git clone https://github.com/bmottaghi/behzad-framework.git my-project
 cd my-project
 code .
 ```
@@ -141,13 +141,24 @@ Then type `/init-new my-project` to set up your project.
 
 ### Option 2: Add to Existing Project
 
+**Linux/Mac (bash):**
 ```bash
 cd your-project
-git clone https://github.com/user/behzad-framework.git .behzad-temp
+git clone https://github.com/bmottaghi/behzad-framework.git .behzad-temp
 cp .behzad-temp/CLAUDE.md .
 cp -r .behzad-temp/.claude .
 cp -r .behzad-temp/*.md .
 rm -rf .behzad-temp
+```
+
+**Windows (PowerShell):**
+```powershell
+cd your-project
+git clone https://github.com/bmottaghi/behzad-framework.git .behzad-temp
+cp .behzad-temp\CLAUDE.md .
+cp -Recurse -Force .behzad-temp\.claude .
+cp -Force .behzad-temp\*.md .
+rm -Recurse -Force .behzad-temp
 ```
 
 Then type `/init-existing` to analyze your codebase and create framework docs.
