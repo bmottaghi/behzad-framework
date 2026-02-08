@@ -36,6 +36,7 @@ For potential FEATURES:
 - What should it do?
 - Why is it needed now?
 - Any constraints or dependencies?
+- Which product(s) does this affect? (website/admin-panel/android/all)
 
 **Step 2: Classify the request**
 
@@ -206,6 +207,7 @@ Create entry in docs/product-system.md under "## Features" section:
 ### FEAT-XXX: [Title]
 - Status: In Planning
 - Priority: [P0/P1/P2]
+- Products: `[website, admin-panel, android]`
 - Created: [Today's date]
 
 **Description:** [What this feature does]
@@ -226,6 +228,27 @@ Create entry in docs/product-system.md under "## Features" section:
 1. APPROVE - Continue to technical analysis
 2. MODIFY - Change requirements
 3. ABANDON - Cancel this feature"
+
+### Phase F2.5: Roadmap Update
+
+After feature is approved, update the Roadmap section in product-system.md:
+
+1. Add feature to appropriate section based on priority:
+   - P0/P1 → Add to PLANNED section
+   - P2/P3 → Add to BACKLOG section
+
+2. Include Products tag in the roadmap entry:
+   ```
+   PLANNED:
+   ├─ P0 (Critical)
+   │   └─ FEAT-XXX: [Title] `[products]`
+   ```
+
+3. If feature has dependencies → Add to DEPENDENCIES section:
+   ```
+   DEPENDENCIES:
+   - FEAT-XXX requires FEAT-YYY
+   ```
 
 ### Phase F3: Technical Impact Analysis
 - Read tech-spine documents
@@ -251,22 +274,31 @@ Create phased plan in docs/execution/execution-plan.md:
 - Write tests alongside code
 - Update tech-spine as you go
 - Mark phases complete in execution-plan.md
+- **Update Test Registry** in execution-plan.md:
+  - Add each test file with test count
+  - Mark test status (Pass/Fail)
+  - Update coverage numbers after test runs
 
 ### Phase F5.5: Full Test Suite Verification (Mandatory)
 
 **This phase is MANDATORY - cannot be skipped.**
 
 Before proceeding to Pre-Release Review:
-1. Run ALL project tests (not just this feature's tests)
+
+1. **Read docs/tech-spine/component-map.md** to determine test boundaries
+2. **Identify which tests to run** based on changed files:
+   - If ANY file in Shared Layer changed → Run ALL tests
+   - If only Product-Specific files changed → Run that product's tests
+3. **Run appropriate tests:**
    - Command: `npm test` or project's test command
-2. Check results:
+4. **Check results:**
    - If ALL tests pass → Continue to Phase F6
    - If ANY test fails:
      - Stop and report which tests failed
      - If previous feature's tests fail → **Regression detected**
      - Fix all failing tests before continuing
      - Re-run full test suite
-3. Document test results in execution-plan.md
+5. **Update Test Registry** in execution-plan.md with final results
 
 **Why this matters:** New features should never break existing functionality.
 
@@ -313,7 +345,11 @@ Options:
 2. MODIFY - Change lessons
 3. SKIP LESSONS - Complete without lessons"
 
-Update product-system.md: Status → "Completed"
+Update product-system.md:
+- Status → "Completed"
+- **Update Roadmap section:**
+  - Move feature from PLANNED/IN PROGRESS to COMPLETED
+  - Format: `- FEAT-XXX: [Title] \`[products]\` ✓`
 
 ### Phase F10: Git Commit & Push (Mandatory)
 
@@ -384,3 +420,6 @@ When user says "abandon", "cancel", or "stop" at any gate:
 8. **ALWAYS** run full test suite before completion - prevent regressions
 9. **ALWAYS** commit and push to Git - no work is complete without version control
 10. **ALWAYS** check for GitHub remote - ask for URL if not configured
+11. **ALWAYS** update Roadmap when creating, starting, or completing features
+12. **ALWAYS** update Test Registry in execution-plan.md as you write tests
+13. **ALWAYS** check component-map.md to determine which tests to run

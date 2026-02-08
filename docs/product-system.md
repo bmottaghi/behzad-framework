@@ -76,6 +76,7 @@ The focus is simplicity and speed.
 
 **Status:** In Progress
 **Priority:** P0
+**Products:** `[website, admin-panel]`
 **Started:** 2025-01-15
 **Target:** 2025-01-20
 
@@ -130,6 +131,7 @@ Allow users to create accounts and log in with email and password.
 
 **Status:** Planned
 **Priority:** P0
+**Products:** `[website]`
 **Estimated Start:** 2025-01-21
 
 **Description:**
@@ -175,6 +177,7 @@ Once FEAT-001 is complete, start requirement clarification for this feature.
 
 **Status:** Planned
 **Priority:** P1
+**Products:** `[website]`
 **Estimated Start:** 2025-01-23
 
 **Description:**
@@ -210,6 +213,7 @@ Users can view all their tasks in a list, sorted and filtered.
 
 **Status:** Completed
 **Priority:** P0
+**Products:** `[all]`
 **Completed:** 2025-01-10
 
 **Description:**
@@ -484,6 +488,35 @@ Here's what a feature looks like through its full lifecycle in this document:
 ```
 
 **Always current. Always clear.**
+
+---
+
+## Roadmap
+
+This section provides a high-level view of feature progress and dependencies.
+
+**AI updates this automatically when features are created, started, or completed.**
+
+### COMPLETED
+- FEAT-000: Project Setup `[all]` ✓
+
+### IN PROGRESS
+- FEAT-001: User Authentication `[website, admin-panel]` ▶ Phase 3/6
+
+### PLANNED
+
+#### P0 (Critical)
+- FEAT-002: Task Creation `[website]`
+
+#### P1 (Important)
+- FEAT-003: Task List View `[website]`
+
+#### P2 (Nice to Have)
+*(empty)*
+
+### DEPENDENCIES
+- FEAT-002 requires FEAT-001
+- FEAT-003 requires FEAT-002
 
 ---
 

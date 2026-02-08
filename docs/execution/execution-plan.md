@@ -362,6 +362,44 @@ npm run deploy:rollback
 
 ---
 
+## Test Registry
+
+**Track all tests written for this feature.**
+
+AI updates this as tests are written during implementation.
+
+### Tests Written for This Feature
+
+| Type | File | Test Count | Status |
+|------|------|------------|--------|
+| Unit | `tests/unit/...` | 0 | Pending |
+| Integration | `tests/integration/...` | 0 | Pending |
+| E2E | `tests/e2e/...` | 0 | Pending |
+
+**Total Tests:** 0
+**Run Command:** `npm test -- --grep "FEAT-XXX"`
+**Last Run:** Not yet run
+
+### Test Naming Convention
+
+Follow this convention for easy discovery:
+
+- **Unit tests:** `tests/unit/{component}/{function}.test.js`
+- **Integration tests:** `tests/integration/{layer}/{feature}.test.js`
+- **E2E tests:** `tests/e2e/{user-flow}.test.js`
+
+### Test Coverage
+
+| Component | Lines | Branches | Functions |
+|-----------|-------|----------|-----------|
+| Service | 0% | 0% | 0% |
+| Controller | 0% | 0% | 0% |
+| Total | 0% | 0% | 0% |
+
+> Update coverage after running `npm test -- --coverage`
+
+---
+
 ## Lessons Captured (During Execution)
 
 As phases complete, note lessons learned here. These will be added to `docs/learning/lessons.md` at the end.
