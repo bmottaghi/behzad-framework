@@ -10,17 +10,19 @@ This document describes the complete pipeline from vague idea to deployed featur
 
 ## Overview
 
-The deliver flow has **9 phases**:
+The deliver flow has **10 phases** (plus a mandatory test verification step):
 
 1. **Requirement Clarification** - Understand what you actually want
 2. **Feature Definition** - Document it clearly in product-system.md
 3. **Technical Impact Analysis** - Understand what will change
 4. **Execution Planning** - Break work into safe, resumable phases
 5. **Implementation** - Build it phase by phase with tests
+5.5. **Test Suite Verification** - Run ALL tests to prevent regressions (mandatory)
 6. **Pre-Release Review** - Validate before deployment
 7. **Deployment** - Release to production
 8. **Post-Deployment Validation** - Verify it works
 9. **Learning Capture** - Document lessons learned
+10. **Git Commit & Push** - Commit and push to version control (mandatory)
 
 **Each phase has clear inputs, outputs, and decision gates.**
 
@@ -565,6 +567,39 @@ As implementation progresses, AI updates tech-spine documents:
 
 ---
 
+## Phase 5.5: Full Test Suite Verification (Mandatory)
+
+### Purpose
+
+Ensure the new feature hasn't broken existing functionality.
+
+**This phase is MANDATORY and cannot be skipped.**
+
+---
+
+### Process
+
+1. **Run ALL project tests** (not just this feature's tests)
+   - Command: `npm test` or project's test command
+
+2. **Check results:**
+   - If ALL tests pass → Continue to Phase 6
+   - If ANY test fails:
+     - Stop and report which tests failed
+     - If previous feature's tests fail → **Regression detected**
+     - Fix all failing tests before continuing
+     - Re-run full test suite
+
+3. **Document test results** in execution-plan.md
+
+---
+
+### Why This Matters
+
+New features should never break existing functionality. Running the full test suite catches regressions early.
+
+---
+
 ## Phase 6: Pre-Release Review
 
 ### Purpose
@@ -960,6 +995,57 @@ Lessons must be valuable. Bad lessons create noise.
 
 ---
 
+## Phase 10: Git Commit & Push (Mandatory)
+
+### Purpose
+
+Commit all changes to version control and push to remote.
+
+**This phase is MANDATORY and cannot be skipped.**
+
+---
+
+### Process
+
+1. **Check Git Repository**
+   - Check if `.git` folder exists
+   - If NO: Run `git init`
+
+2. **Check Remote**
+   - Run: `git remote -v`
+   - If NO remote configured:
+     - Ask user: "No GitHub remote found. Please enter your repository URL:"
+     - Run: `git remote add origin <url>`
+
+3. **Commit Changes**
+   - Stage relevant files: `git add .`
+   - Commit with message:
+     ```
+     feat(FEAT-XXX): [Feature title]
+
+     - [Summary of what was added]
+     - Delivered via behzad-framework
+     ```
+
+4. **Push to Remote**
+   - Run: `git push -u origin <current-branch>`
+   - If push fails: Report error and ask user for resolution
+
+5. **Confirm Success**
+   - Show: Commit hash, branch name, remote URL
+   - "✅ Feature delivered and pushed to [remote URL]"
+
+---
+
+### Why This Matters
+
+Version control is essential. Without commits:
+- Changes can be lost
+- Collaboration is impossible
+- Rollback becomes difficult
+
+---
+
 ## Completion
 
 **Feature delivery is complete.**
@@ -969,12 +1055,14 @@ The full cycle:
 - Defined feature ✅
 - Planned execution ✅
 - Implemented with tests ✅
+- All tests passing (no regressions) ✅
 - Validated before release ✅
 - Deployed to production ✅
 - Verified working ✅
 - Lessons captured ✅
+- Committed and pushed to Git ✅
 
-**Product-system.md is updated. Tech-spine is current. Lessons are captured.**
+**Product-system.md is updated. Tech-spine is current. Lessons are captured. Changes are in version control.**
 
 **Ready for next feature.**
 

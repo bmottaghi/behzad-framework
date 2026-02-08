@@ -25,7 +25,7 @@ Ready to continue with Phase Y?
 
 **CONTINUE FROM WHERE WE LEFT OFF:**
 - Pick up at the next incomplete phase
-- Follow the same process as /deliver
+- Follow the same process as /new-request
 - Stop at decision gates
 - Update documents as you go
 

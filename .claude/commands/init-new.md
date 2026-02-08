@@ -55,4 +55,4 @@ Before creating anything, ask:
 - Recommended first feature to deliver
 - How to proceed
 
-**ASK:** "Project initialized. Which feature should we /deliver first?"
+**ASK:** "Project initialized. Use /new-request [feature] to start your first feature."

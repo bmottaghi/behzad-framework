@@ -41,7 +41,7 @@ Living documents that stay current:
 1. Type `/help` to see all commands
 2. For existing projects: `/init-existing`
 3. For new projects: `/init-new my-project`
-4. To deliver a feature: `/deliver user authentication`
+4. To start working: `/new-request user authentication`
 
 ## Framework Principles
 

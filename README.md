@@ -25,8 +25,8 @@ The framework is designed for **non-technical Product Leaders** who want to ship
 ## Quick Start with Commands
 
 ```
-# Start a new feature
-/deliver user authentication
+# Start a new feature or bug
+/new-request user authentication
 
 # Check status
 /status FEAT-001
@@ -214,7 +214,7 @@ Then type `/init-existing` to analyze your codebase and create framework docs.
 
 1. **Install the framework** (see Installation above)
 2. **Set up your project**: `/init-existing` or `/init-new my-project`
-3. **Deliver your first feature**: `/deliver user authentication`
+3. **Start your first feature**: `/new-request user authentication`
 4. **Check progress**: `/status`
 
 See [command-guide.md](command-guide.md) for all commands.

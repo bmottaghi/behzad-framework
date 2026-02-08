@@ -53,8 +53,7 @@ This picks up where you left off.
 
 | Command | What it does |
 |---------|--------------|
-| `/new-request [description]` | Start new work (feature or bug) - **recommended** |
-| `/deliver [feature]` | Start new feature (skips classification) |
+| `/new-request [description]` | Start new work (feature or bug) |
 | `/continue [ID]` | Resume paused work (FEAT-XXX or BUG-XXX) |
 | `/status` | Check overall status |
 | `/status [ID]` | Check specific feature/bug status |
@@ -72,14 +71,13 @@ This picks up where you left off.
 |---------|---------|-------------|
 | `/init-new` | `/init-new my-app` | Start a brand new project |
 | `/init-existing` | `/init-existing` | Add framework to existing project |
-| `/help` | `/help deliver` | Get help on any command |
+| `/help` | `/help new-request` | Get help on any command |
 
 ### Working on Features & Bugs
 
 | Command | Example | Description |
 |---------|---------|-------------|
 | `/new-request` | `/new-request button is broken` | Start any work (AI classifies) |
-| `/deliver` | `/deliver search functionality` | Start feature (skip classification) |
 | `/continue` | `/continue FEAT-001` or `/continue BUG-003` | Resume paused work |
 | `/status` | `/status FEAT-002` or `/status BUG-001` | Check progress |
 | `/plan` | `/plan FEAT-001` | View/edit execution plan |
@@ -145,16 +143,6 @@ This picks up where you left off.
 /continue BUG-001
 # or
 /continue FEAT-001
-```
-
-### Workflow 2b: Deliver a Known Feature
-
-```
-# If you KNOW it's a feature, skip classification
-/deliver user login with email and password
-
-# AI guides you through 9 phases
-# Just respond to decision gates
 ```
 
 ### Workflow 3: Check What's Happening
@@ -271,7 +259,7 @@ Check the feature ID with `/list-features`. Feature IDs are like FEAT-001.
 
 ### "No work in progress"
 
-Use `/status` to see what's available, then `/deliver` to start new work.
+Use `/status` to see what's available, then `/new-request` to start new work.
 
 ### "Documents out of sync"
 
@@ -290,7 +278,7 @@ Run `/update-tech-spine` after making code changes outside the framework.
 /help
 
 # Specific command
-/help deliver
+/help new-request
 /help continue
 /help status
 ```
@@ -315,8 +303,7 @@ STARTING:
   /init-existing         Add to existing project
 
 WORKING:
-  /new-request [desc]    Start any work (recommended)
-  /deliver [feature]     Start feature (skip classification)
+  /new-request [desc]    Start any work (feature or bug)
   /continue [ID]         Resume (FEAT-XXX or BUG-XXX)
   /status [ID]           Check status
 

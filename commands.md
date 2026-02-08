@@ -9,7 +9,7 @@ Commands are simple slash commands that expand into full prompts. When you type 
 ## How Commands Work
 
 ```
-You type:     /deliver user authentication
+You type:     /new-request user authentication
 Claude reads: This file (commands.md)
 Claude runs:  The expanded prompt with your parameters injected
 ```
@@ -22,7 +22,7 @@ Claude runs:  The expanded prompt with your parameters injected
 
 | Category | Commands | Purpose |
 |----------|----------|---------|
-| Primary | /deliver, /init-existing, /init-new, /continue, /status, /help | Core workflow |
+| Primary | /new-request, /init-existing, /init-new, /continue, /status, /help | Core workflow |
 | Workflow | /plan, /deploy, /rollback, /pause, /resume | Execution control |
 | Document | /update-tech-spine, /show-lessons, /list-features, /add-research, /sync-docs | Document management |
 | Query | /show-roadmap, /show-metrics, /search-decisions | Information retrieval |
@@ -35,104 +35,23 @@ These are the commands you'll use most often.
 
 ---
 
-## /deliver
+## /new-request
 
-**Purpose:** Start delivering a new feature from scratch.
+**Purpose:** Start working on a new feature or bug. AI will classify automatically.
 
 **Syntax:**
 ```
-/deliver [feature-description]
+/new-request [description]
 ```
 
 **Examples:**
 ```
-/deliver user authentication
-/deliver search functionality for tasks
-/deliver ability to share tasks with team members
+/new-request user authentication
+/new-request login button doesn't work on mobile
+/new-request ability to share tasks with team members
 ```
 
-**Expands To:**
-
-```
-I'm using behzad-framework for systematic feature delivery.
-
-**FIRST, read these framework documents (in this order):**
-1. Read: {framework_root}/philosophy.md - Understand the principles
-2. Read: {framework_root}/deliver-flow.md - The 9-phase delivery process
-3. Read: {framework_root}/decision-gates.md - The 5 approval points
-
-**THEN, read the project documents:**
-4. Read: docs/product-system.md - Current product state
-5. Read: docs/tech-spine/ (all files) - Technical knowledge
-6. Read: docs/learning/lessons.md - Past lessons
-
-**FEATURE REQUEST:**
-I want to deliver: {feature-description}
-
-**FOLLOW THE 9-PHASE DELIVER FLOW:**
-
-Phase 1: Requirement Clarification
-- Act as Product Manager
-- Ask clarifying questions about Who, What, Why, When, Where, How, Constraints
-- Don't assume - ask specific questions
-- Continue until requirements are clear
-
-Phase 2: Feature Definition
-- Create feature entry in docs/product-system.md
-- Include: Feature ID, Title, Description, Requirements, Acceptance Criteria, Priority, Dependencies, Status
-- Requirements must be specific and testable
-- **DECISION GATE 1:** Present feature definition and ask "Does this match what you want?"
-
-Phase 3: Technical Impact Analysis
-- Read tech-spine documents
-- Analyze: affected components, new components, data changes, dependencies, risks
-- Check lessons.md for relevant past lessons
-- Document technical impact
-
-Phase 4: Execution Planning
-- Create phased plan in docs/execution/execution-plan.md
-- Each phase: 1-4 hours, clear goal, specific scope, tests, checkpoint
-- Phases must be resumable
-- **DECISION GATE 2:** Present plan and ask "Should I proceed with this plan?"
-
-Phase 5: Implementation
-- Execute phase by phase
-- Write tests alongside code
-- Update tech-spine as you go
-- Validate checkpoint after each phase
-- Mark phases complete in execution-plan.md
-
-Phase 6: Pre-Release Review
-- Verify all acceptance criteria
-- Run full test suite
-- Confirm documentation updated
-- Security and performance check
-- **DECISION GATE 3:** Present review and ask "Ready to deploy?"
-
-Phase 7: Deployment
-- Deploy to staging first if applicable
-- **DECISION GATE 4:** Ask "Ready to deploy to production?"
-- Deploy to production
-- Create release tag
-
-Phase 8: Post-Deployment Validation
-- Health check
-- Smoke tests
-- Monitor logs and metrics
-- Validate feature works in production
-
-Phase 9: Learning Capture
-- Identify lessons learned
-- Draft lessons in proper format
-- **DECISION GATE 5:** Present lessons and ask "Should I add these lessons?"
-- Update product-system.md status to "Completed"
-
-**IMPORTANT RULES:**
-- Stop at each decision gate and wait for approval
-- Never skip phases
-- Keep documents updated as you go
-- If blocked, explain and ask for guidance
-```
+**Note:** This command expands to `.claude/commands/new-request.md` which handles both features and bugs with proper classification.
 
 ---
 
@@ -201,7 +120,7 @@ After creating all documents, present:
 - Any recommendations for improvement
 - How to start using the framework
 
-**ASK:** "Framework initialized. Ready to /deliver your first feature?"
+**ASK:** "Framework initialized. Ready to start? Use /new-request to begin."
 ```
 
 ---
@@ -279,7 +198,7 @@ Before creating anything, ask:
 - Recommended first feature to deliver
 - How to proceed
 
-**ASK:** "Project initialized. Which feature should we /deliver first?"
+**ASK:** "Project initialized. Use /new-request [description] to start your first feature."
 ```
 
 ---
@@ -329,7 +248,7 @@ Ready to continue with Phase Y?
 
 **CONTINUE FROM WHERE WE LEFT OFF:**
 - Pick up at the next incomplete phase
-- Follow the same process as /deliver
+- Follow the same process as /new-request
 - Stop at decision gates
 - Update documents as you go
 ```
@@ -444,7 +363,7 @@ Lessons Captured: X total
 - `/init-existing` - Add to existing project
 
 **Core Workflow:**
-- `/deliver [feature]` - Start new feature delivery
+- `/new-request [description]` - Start new feature or bug
 - `/continue [FEAT-ID]` - Resume paused feature
 - `/status [FEAT-ID]` - Check status
 
@@ -469,7 +388,7 @@ Lessons Captured: X total
 
 **Tips:**
 - Start with `/init-existing` or `/init-new`
-- Use `/deliver` for new features
+- Use `/new-request` for new features or bugs
 - Use `/continue` to resume work
 - Use `/status` to check progress
 
@@ -677,7 +596,7 @@ Automatically continue that feature.
 Same as `/continue [FEAT-ID]`
 
 **IF NONE IN PROGRESS:**
-"No work in progress. Use /deliver to start a new feature or /list-features to see planned features."
+"No work in progress. Use /new-request to start new work or /list-features to see planned features."
 ```
 
 ---
@@ -1107,7 +1026,7 @@ These are used internally by other commands. Users typically don't call these di
 
 ## [Internal] Read Framework Docs
 
-Used by /deliver, /continue, and others to load framework context.
+Used by /new-request, /continue, and others to load framework context.
 
 **Template:**
 ```

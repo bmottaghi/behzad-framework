@@ -65,7 +65,7 @@ Based on answers, determine if this is a BUG or FEATURE:
 
 ---
 
-## IF BUG → Follow BUG FLOW (6 Phases)
+## IF BUG → Follow BUG FLOW (7 Phases)
 
 ### Phase B1: Bug Definition
 
@@ -157,9 +157,41 @@ Options:
 
 Update docs/learning/lessons.md if approved.
 
+### Phase B7: Git Commit & Push (Mandatory)
+
+**This phase is MANDATORY - cannot be skipped.**
+
+1. **Check Git Repository**
+   - Check if `.git` folder exists
+   - If NO: Run `git init`
+
+2. **Check Remote**
+   - Run: `git remote -v`
+   - If NO remote configured:
+     - Ask user: "No GitHub remote found. Please enter your repository URL:"
+     - Run: `git remote add origin <url>`
+
+3. **Commit Changes**
+   - Stage relevant files: `git add .`
+   - Commit with message:
+     ```
+     fix(BUG-XXX): [Bug title]
+
+     - [What was fixed]
+     - Delivered via behzad-framework
+     ```
+
+4. **Push to Remote**
+   - Run: `git push -u origin <current-branch>`
+   - If push fails: Report error and ask user for resolution
+
+5. **Confirm Success**
+   - Show: Commit hash, branch name, remote URL
+   - "✅ Changes pushed to [remote URL]"
+
 ---
 
-## IF FEATURE → Follow FEATURE FLOW (9 Phases)
+## IF FEATURE → Follow FEATURE FLOW (10 Phases)
 
 ### Phase F1: Requirement Clarification
 - Act as Product Manager
@@ -220,6 +252,24 @@ Create phased plan in docs/execution/execution-plan.md:
 - Update tech-spine as you go
 - Mark phases complete in execution-plan.md
 
+### Phase F5.5: Full Test Suite Verification (Mandatory)
+
+**This phase is MANDATORY - cannot be skipped.**
+
+Before proceeding to Pre-Release Review:
+1. Run ALL project tests (not just this feature's tests)
+   - Command: `npm test` or project's test command
+2. Check results:
+   - If ALL tests pass → Continue to Phase F6
+   - If ANY test fails:
+     - Stop and report which tests failed
+     - If previous feature's tests fail → **Regression detected**
+     - Fix all failing tests before continuing
+     - Re-run full test suite
+3. Document test results in execution-plan.md
+
+**Why this matters:** New features should never break existing functionality.
+
 ### Phase F6: Pre-Release Review
 - Verify all acceptance criteria
 - Run full test suite
@@ -265,6 +315,38 @@ Options:
 
 Update product-system.md: Status → "Completed"
 
+### Phase F10: Git Commit & Push (Mandatory)
+
+**This phase is MANDATORY - cannot be skipped.**
+
+1. **Check Git Repository**
+   - Check if `.git` folder exists
+   - If NO: Run `git init`
+
+2. **Check Remote**
+   - Run: `git remote -v`
+   - If NO remote configured:
+     - Ask user: "No GitHub remote found. Please enter your repository URL:"
+     - Run: `git remote add origin <url>`
+
+3. **Commit Changes**
+   - Stage relevant files: `git add .`
+   - Commit with message:
+     ```
+     feat(FEAT-XXX): [Feature title]
+
+     - [Summary of what was added]
+     - Delivered via behzad-framework
+     ```
+
+4. **Push to Remote**
+   - Run: `git push -u origin <current-branch>`
+   - If push fails: Report error and ask user for resolution
+
+5. **Confirm Success**
+   - Show: Commit hash, branch name, remote URL
+   - "✅ Feature delivered and pushed to [remote URL]"
+
 ---
 
 ## ABANDON FLOW
@@ -299,3 +381,6 @@ When user says "abandon", "cancel", or "stop" at any gate:
 5. **RESPECT** abandonment immediately - don't try to convince user to continue
 6. **CLASSIFY** correctly - bugs fix broken behavior, features add new behavior
 7. **DOCUMENT** everything - future you will thank present you
+8. **ALWAYS** run full test suite before completion - prevent regressions
+9. **ALWAYS** commit and push to Git - no work is complete without version control
+10. **ALWAYS** check for GitHub remote - ask for URL if not configured

@@ -34,7 +34,7 @@ Current Phase Details:
 4. View phase details
 
 **IF NO FEAT-ID PROVIDED:**
-Show the current active execution plan, or report "No active execution plan. Use /deliver to start a feature."
+Show the current active execution plan, or report "No active execution plan. Use /new-request to start a feature."
 
 **IF PLAN NOT FOUND:**
 Report: "No execution plan found for $ARGUMENTS. The feature may not have reached Phase 4 yet."

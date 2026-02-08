@@ -36,14 +36,14 @@ Follow deliver-flow.md...
 
 You just type:
 ```
-/deliver user authentication
+/new-request user authentication
 ```
 
 **The command expands automatically.**
 
 ### How It Works
 
-1. **You type a command** like `/deliver user authentication`
+1. **You type a command** like `/new-request user authentication`
 2. **Claude reads [commands.md](commands.md)** which defines the command
 3. **Command expands** into a full prompt with your parameters injected
 4. **Claude executes** the expanded prompt
@@ -52,7 +52,7 @@ You just type:
 
 | Category | Commands |
 |----------|----------|
-| Primary | `/deliver`, `/init-existing`, `/init-new`, `/continue`, `/status`, `/help` |
+| Primary | `/new-request`, `/init-existing`, `/init-new`, `/continue`, `/status`, `/help` |
 | Workflow | `/plan`, `/deploy`, `/rollback`, `/pause`, `/resume` |
 | Document | `/update-tech-spine`, `/show-lessons`, `/list-features`, `/add-research`, `/sync-docs` |
 | Query | `/show-roadmap`, `/show-metrics`, `/search-decisions` |
@@ -525,9 +525,9 @@ This framework is designed to work seamlessly with Claude Code.
 ### Using Commands (Recommended)
 
 1. **Open your project in VSCode**
-2. **Type a command:** `/deliver user authentication`
+2. **Type a command:** `/new-request user authentication`
 3. **Claude reads framework documents**
-4. **Claude follows the deliver flow**
+4. **Claude follows the delivery flow**
 5. **Claude stops at decision gates**
 6. **You approve or redirect**
 7. **Claude implements and updates documents**
@@ -540,8 +540,8 @@ This framework is designed to work seamlessly with Claude Code.
 # Start a new project
 /init-new my-project
 
-# Deliver a feature
-/deliver user authentication with email and password
+# Start a feature
+/new-request user authentication with email and password
 
 # Check status
 /status FEAT-001

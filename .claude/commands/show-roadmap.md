@@ -48,6 +48,6 @@ Dependencies:
 ```
 
 **QUICK ACTIONS:**
-- Use `/deliver [feature]` to add new feature
+- Use `/new-request [description]` to add new feature or bug
 - Use `/status FEAT-ID` for feature details
 - Use `/continue FEAT-ID` to start working

@@ -22,6 +22,6 @@ Which feature would you like to resume?
 ```
 No paused features found.
 
-Use /deliver [feature] to start new work, or
+Use /new-request [description] to start new work, or
 Use /list-features to see all features.
 ```

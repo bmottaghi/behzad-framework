@@ -11,7 +11,7 @@ $ARGUMENTS
 **Core Workflow:**
 | Command | Description |
 |---------|-------------|
-| `/deliver [feature]` | Start new feature delivery |
+| `/new-request [description]` | Start new feature or bug (AI classifies) |
 | `/continue [FEAT-ID]` | Resume paused feature |
 | `/status [FEAT-ID]` | Check status (feature or project) |
 
@@ -42,7 +42,7 @@ $ARGUMENTS
 
 **Tips:**
 - Start with `/init-existing` or `/init-new`
-- Use `/deliver` for new features
+- Use `/new-request` for new features or bugs
 - Use `/continue` to resume work
 - Use `/status` to check progress
 

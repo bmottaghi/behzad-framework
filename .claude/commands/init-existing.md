@@ -53,4 +53,4 @@ After creating all documents, present:
 - Any recommendations for improvement
 - How to start using the framework
 
-**ASK:** "Framework initialized. Ready to /deliver your first feature?"
+**ASK:** "Framework initialized. Ready to start? Use /new-request to begin."

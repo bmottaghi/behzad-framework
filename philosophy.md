@@ -72,7 +72,7 @@ The framework translates your intent into systematic execution.
 
 **Framework way:**
 ```
-/deliver user authentication
+/new-request user authentication
 ```
 
 That's it. One command.
@@ -530,7 +530,7 @@ Ready to try it?
 ```
 /init-new my-project          # Start new project
 /init-existing                # Add to existing project
-/deliver user authentication  # Deliver a feature
+/new-request user authentication  # Start a feature
 /help                         # See all commands
 ```
 

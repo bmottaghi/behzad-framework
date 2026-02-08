@@ -17,8 +17,8 @@ The fastest way to use the framework:
 # Existing project
 /init-existing
 
-# Deliver a feature
-/deliver user authentication
+# Start a feature
+/new-request user authentication
 
 # Check status
 /status
@@ -116,7 +116,7 @@ This is the most common workflow.
 #### With Commands (Recommended)
 
 ```
-/deliver user profile editing
+/new-request user profile editing
 ```
 
 That's it. Claude will:
@@ -131,7 +131,7 @@ That's it. Claude will:
 #### Example with Commands
 
 ```
-You: /deliver user profile editing
+You: /new-request user profile editing
 
 Claude: I have some clarifying questions:
 
@@ -263,7 +263,7 @@ If deployment has issues:
 
 | Command | Purpose |
 |---------|---------|
-| `/deliver [feature]` | Start new feature delivery |
+| `/new-request [description]` | Start new feature or bug |
 | `/init-new [name]` | Start new project |
 | `/init-existing` | Add framework to existing project |
 | `/continue [FEAT-ID]` | Resume paused feature |
@@ -306,7 +306,7 @@ This tells Claude to read framework documents and follow the process
 
 #### 1. Use Commands
 
-Use slash commands like `/deliver`, `/continue`, `/status`.
+Use slash commands like `/new-request`, `/continue`, `/status`.
 
 Commands automatically:
 - Read the framework documents
@@ -647,7 +647,7 @@ my-project/
 
 | Task | Command |
 |------|---------|
-| Deliver feature | `/deliver [feature]` |
+| Start feature/bug | `/new-request [description]` |
 | Continue feature | `/continue FEAT-[N]` |
 | Check status | `/status FEAT-[N]` |
 | Update tech-spine | `/update-tech-spine` |
@@ -709,7 +709,7 @@ Use Claude Code normally. Framework is for **process**, not replacing technical 
 **To use behzad-framework:**
 
 1. **Setup:** `/init-new` or `/init-existing` (once)
-2. **Daily:** `/deliver [feature]` to start new work
+2. **Daily:** `/new-request [description]` to start new work
 3. **Resume:** `/continue [FEAT-ID]` to pick up where you left off
 4. **Check:** `/status` to see progress
 5. **Gates:** Approve at decision gates

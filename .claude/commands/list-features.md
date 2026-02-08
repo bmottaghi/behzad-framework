@@ -46,4 +46,4 @@ Total: X features
 **QUICK ACTIONS:**
 - Use `/status FEAT-ID` for details
 - Use `/continue FEAT-ID` to resume work
-- Use `/deliver [feature]` to add new feature
+- Use `/new-request [description]` to add new feature or report bug

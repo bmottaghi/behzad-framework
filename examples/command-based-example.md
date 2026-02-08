@@ -40,7 +40,7 @@ Stop at decision gates.
 ### New Way (Command-Based)
 
 ```
-/deliver task prioritization
+/new-request task prioritization
 ```
 
 **Same result. One line.**
@@ -53,7 +53,7 @@ Stop at decision gates.
 
 **User:**
 ```
-/deliver task prioritization with P1/P2/P3 levels
+/new-request task prioritization with P1/P2/P3 levels
 ```
 
 **AI:**
@@ -377,7 +377,7 @@ Continuing with Phase 3...
 
 | Step | Command | Purpose |
 |------|---------|---------|
-| Start | `/deliver task prioritization` | Begin feature delivery |
+| Start | `/new-request task prioritization` | Begin feature delivery |
 | Check | `/status FEAT-004` | View progress |
 | Pause | `/pause` | Save and stop |
 | Resume | `/continue FEAT-004` | Pick up where left off |
@@ -404,7 +404,7 @@ Continuing with Phase 3...
 ### Use Commands (Recommended)
 
 ```
-/deliver user authentication
+/new-request user authentication
 /continue FEAT-001
 /status
 /show-lessons auth
@@ -450,7 +450,7 @@ Follow deliver-flow.md with that modification.
 ## Quick Reference
 
 ```
-Start new feature:    /deliver [description]
+Start new feature:    /new-request [description]
 Resume feature:       /continue [FEAT-ID]
 Check progress:       /status [FEAT-ID]
 Pause work:           /pause
