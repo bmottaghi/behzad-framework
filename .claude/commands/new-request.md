@@ -9,7 +9,7 @@ I'm using behzad-framework to handle a new request: $ARGUMENTS
 
 **THEN, read project documents:**
 4. Read: docs/product-system.md
-5. Read: docs/tech-spine/ (all 5 files)
+5. Read: docs/tech-spine/ (all files including design-systems.md)
 6. Read: docs/learning/lessons.md
 
 **REQUEST:**
@@ -256,6 +256,11 @@ After feature is approved, update the Roadmap section in product-system.md:
 - Identify new components needed
 - Check for breaking changes
 - Review relevant lessons
+- **If frontend work detected:**
+  - Read docs/tech-spine/design-systems.md
+  - Identify affected product(s) from component-map.md
+  - List existing components to reuse
+  - List new components needed (must be documented)
 
 ### Phase F4: Execution Planning
 
@@ -274,6 +279,11 @@ Create phased plan in docs/execution/execution-plan.md:
 - Write tests alongside code
 - Update tech-spine as you go
 - Mark phases complete in execution-plan.md
+- **If frontend work:**
+  - Follow design-systems.md guidelines strictly
+  - Use design tokens (NEVER hardcode colors/spacing)
+  - Check Do/Don't rules for each component
+  - Document new components in design-systems.md
 - **Update Test Registry** in execution-plan.md:
   - Add each test file with test count
   - Mark test status (Pass/Fail)

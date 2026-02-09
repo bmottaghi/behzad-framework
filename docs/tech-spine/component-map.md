@@ -100,6 +100,21 @@ Before any production deployment → **Always run ALL tests**
 
 ---
 
+## Design System Reference
+
+Each product has design system guidelines documented in `design-systems.md`.
+
+| Product | Design Language | Component Library | Design System Section |
+|---------|-----------------|-------------------|----------------------|
+| website | Modern, consumer | Custom + Radix UI | design-systems.md > Website |
+| admin-panel | Professional, dense | Shadcn/UI | design-systems.md > Admin Panel |
+| android | Material Design 3 | Jetpack Compose | design-systems.md > Android |
+| ios | Human Interface | SwiftUI | design-systems.md > iOS |
+
+**Rule:** When implementing frontend changes, ALWAYS read the relevant design system section in `design-systems.md` before coding.
+
+---
+
 ## How AI Uses This Document
 
 Before running tests (Phase F5.5 or B4.5), AI should:

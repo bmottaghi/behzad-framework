@@ -2,7 +2,13 @@
   "permissions": {
     "allow": [
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd PowerShell commands for Windows users\n\nInstallation instructions now include both bash \\(Linux/Mac\\)\nand PowerShell \\(Windows\\) commands.\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd unified /new-request command for bugs and features\n\nNew:\n- /new-request command: AI classifies as BUG or FEATURE, follows appropriate flow\n- Bugs section in product-system.md template\n- Abandon/cancel flow at any decision gate\n\nChanges:\n- CLAUDE.md: Updated quick start with /new-request\n- command-guide.md: New workflows for bugs, abandon flow, updated reference card\n- product-system.md: Added Bugs section with status tracking\n\nFeatures of /new-request:\n- Classification gate: AI asks questions, determines BUG vs FEATURE\n- User confirms classification before proceeding\n- Bug flow: 6 phases \\(simpler than feature flow\\)\n- Feature flow: 9 phases \\(existing deliver flow\\)\n- Abandon at any gate: Say \"abandon\" or \"cancel\" to exit cleanly\n- Always updates documentation \\(product-system.md, lessons.md\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git rm:*)",
+      "Bash(git tag -a v2.0.0 -m \"$\\(cat <<''EOF''\nbehzad-framework v2.0.0\n\nBREAKING CHANGES:\n- /deliver command removed - use /new-request instead\n\nNEW FEATURES:\n- Mandatory Test Suite Verification prevents regressions\n- Mandatory Git Commit & Push ensures version control\n- Automatic GitHub remote detection and setup\n\nSee README.md for updated documentation.\nEOF\n\\)\")"
     ]
   }
 }

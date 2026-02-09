@@ -287,6 +287,24 @@ Identify risks before implementation.
 - What risks exist?
 - What lessons apply?
 
+**AI detects frontend work:**
+
+If ANY changed file paths match frontend patterns, read `docs/tech-spine/design-systems.md`:
+
+Frontend File Patterns:
+- `/web/*`, `/frontend/*` (website)
+- `/admin/*` (admin-panel)
+- `/android/*`, `/ios/*` (mobile apps)
+- Any `*.tsx`, `*.jsx`, `*.vue`, `*.svelte` files
+- Any `*.css`, `*.scss`, `*.styled.ts` files
+- Any `**/components/**` directories
+
+If frontend work detected:
+1. Read design-systems.md thoroughly
+2. Note which product(s) are affected
+3. Include design system constraints in Technical Impact Summary
+4. List required components and whether they exist
+
 ---
 
 ### Example Analysis
@@ -490,6 +508,11 @@ Approved execution plan from execution-plan.md
    - Creates/modifies files as defined in phase scope
    - Writes tests alongside code
    - Updates tech-spine documents if needed
+   - **If frontend work:** Follow design-systems.md guidelines
+     - Use design tokens (never hardcode colors/spacing)
+     - Follow component documentation format
+     - Check Do/Don't rules before implementation
+     - Document new components in design-systems.md
 
 3. **AI runs tests**
    - Unit tests for this phase
